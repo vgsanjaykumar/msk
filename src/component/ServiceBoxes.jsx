@@ -4,6 +4,12 @@ import { motion } from "framer-motion";
 export default function ServiceBoxes() {
   const services = [
     {
+      title: "Air Conditioner",
+      img: "/assets/servies/ac.png",
+      desc: "AC repair, installation, gas filling, and deep cleaning service.",
+      phone: "6374439209",
+    },
+    {
       title: "Washing Machine",
       img: "/assets/servies/washing.png",
       desc: "Expert washing machine service to keep your appliance running smoothly.",
@@ -15,12 +21,7 @@ export default function ServiceBoxes() {
       desc: "Fast refrigerator repair and servicing for better cooling efficiency.",
       phone: "6374439209",
     },
-    {
-      title: "Air Conditioner",
-      img: "/assets/servies/ac.png",
-      desc: "AC repair, installation, gas filling, and deep cleaning service.",
-      phone: "6374439209",
-    },
+
     {
       title: "Television",
       img: "/assets/servies/tv.png",
@@ -141,7 +142,7 @@ export default function ServiceBoxes() {
                 {item.desc}
               </p>
 
-              <a
+              {/* <a
                 href={`tel:+91${item.phone}`}
                 className="
                   mt-5 inline-flex items-center gap-2 
@@ -156,7 +157,7 @@ export default function ServiceBoxes() {
                   <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M3 5h2l.4 2M7 7h10l1 5-1 6H6l-1-5 1-6z" />
                 </svg>
                 <span className="text-sm sm:text-base">{item.phone}</span>
-              </a>
+              </a> */}
             </motion.article>
           ))}
         </motion.div>

@@ -17,7 +17,7 @@ export default function Hero() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-24 md:py-28 lg:py-32">
+            <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 md:py-12 lg:py-16">
                 <div className="max-w-xl">
                     <p className="text-xs sm:text-sm tracking-wider uppercase text-white/80 mb-4">
                         MSK SOLUTION
@@ -31,7 +31,7 @@ export default function Hero() {
                     </h1>
 
                     {/* Sub Text */}
-                    <p className="mt-6 max-w-xl text-white/80 text-sm md:text-base hidden sm:block">
+                    <p className=" mt-6 max-w-xl text-white/80 text-sm md:text-base ">
                         Fast, reliable, trained technicians for AC, Washing Machine, Fridge, TV and more.
                         We provide genuine parts and a satisfaction guarantee.
                     </p>
@@ -40,7 +40,7 @@ export default function Hero() {
 
             {/* Bottom Action Bar */}
             <div className="relative z-20 pointer-events-none">
-                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+                <div className="max-w-7xl mx-auto px-6 sm:px-4 lg:px-12 py-2 ">
                     <div className="translate-y-0 md:-translate-y-6">
                         <div className="flex flex-col md:flex-row items-center justify-between gap-4 
               bg-white/10 backdrop-blur-sm border border-white/10 rounded-full 
@@ -99,13 +99,7 @@ export default function Hero() {
             </div>
 
             {/* Mobile spacing fix */}
-            <style jsx>{`
-        @media (max-width: 640px) {
-          section > div.relative.z-10 {
-            padding-bottom: 140px;
-          }
-        }
-      `}</style>
+          
         </section>
     );
 }

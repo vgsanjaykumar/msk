@@ -40,9 +40,10 @@ export default function ServicesPage() {
                 variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
                 className="space-y-24"
             >
+                <ACServices />
                 <WashingMachineServices />
                 <RefrigeratorServices />
-                <ACServices />
+
                 <TVServices />
             </motion.div>
 
@@ -101,6 +102,29 @@ function ACBox({ icon, title, desc }) {
 }
 
 /* ====================================================== */
+/*                AC SERVICE SECTION                      */
+/* ====================================================== */
+function ACServices() {
+    return (
+        <section className="px-6 max-w-7xl mx-auto" id="ac">
+            <h2 className="text-center text-3xl md:text-4xl font-bold text-black dark:text-gray-100">
+                Air Conditioner Services
+            </h2>
+            <p className="text-center mt-2 text-gray-700 dark:text-gray-300">
+                AC repair, installation, gas filling & deep cleaning.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mt-10">
+                <ACBox icon={<FaSnowflake size={40} />} title="Cooling Issue" desc="Fix low cooling & sensor faults." />
+                <ACBox icon={<FaFan size={40} />} title="Gas Filling" desc="Increase cooling performance." />
+                <ACBox icon={<FaTools size={40} />} title="Installation" desc="AC wall mount & setup." />
+                <ACBox icon={<FaCheckCircle size={40} />} title="Deep Cleaning" desc="Improve cooling efficiency." />
+            </div>
+        </section>
+    );
+}
+
+/* ====================================================== */
 /*      WASHING MACHINE SERVICE                           */
 /* ====================================================== */
 function WashingMachineServices() {
@@ -146,28 +170,6 @@ function RefrigeratorServices() {
     );
 }
 
-/* ====================================================== */
-/*                AC SERVICE SECTION                      */
-/* ====================================================== */
-function ACServices() {
-    return (
-        <section className="px-6 max-w-7xl mx-auto">
-            <h2 className="text-center text-3xl md:text-4xl font-bold text-black dark:text-gray-100">
-                Air Conditioner Services
-            </h2>
-            <p className="text-center mt-2 text-gray-700 dark:text-gray-300">
-                AC repair, installation, gas filling & deep cleaning.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mt-10">
-                <ACBox icon={<FaSnowflake size={40} />} title="Cooling Issue" desc="Fix low cooling & sensor faults." />
-                <ACBox icon={<FaFan size={40} />} title="Gas Filling" desc="Increase cooling performance." />
-                <ACBox icon={<FaTools size={40} />} title="Installation" desc="AC wall mount & setup." />
-                <ACBox icon={<FaCheckCircle size={40} />} title="Deep Cleaning" desc="Improve cooling efficiency." />
-            </div>
-        </section>
-    );
-}
 
 /* ====================================================== */
 /*              TELEVISION SERVICE SECTION                */

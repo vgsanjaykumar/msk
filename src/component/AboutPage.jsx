@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FaStar } from "react-icons/fa";
 
 // animation presets
 const fadeUp = {
@@ -76,27 +77,36 @@ export default function AboutPage() {
                     </motion.div>
                 </div>
 
-                {/* Mission Section */}
+                {/* ⭐ EXPERIENCE SECTION — Added */}
+                {/* ⭐ EXPERIENCE SECTION — With Icon */}
                 <motion.div
                     variants={fadeUp}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     className="
-            mt-16 
-            bg-white/70 text-black 
-            dark:bg-white/10 dark:text-white 
-            p-8 rounded-xl backdrop-blur-sm shadow-lg 
-            border border-gray-200 dark:border-white/10
-          "
+        mt-16 text-center 
+        p-10 rounded-xl shadow-lg 
+        bg-purple-100 dark:bg-white/10 
+        border border-purple-300 dark:border-white/10
+    "
                 >
-                    <h3 className="text-3xl font-semibold mb-4 dark:text-white ">Our Mission</h3>
-                    <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                        Our mission is to provide dependable service with genuine spare
-                        parts, timely support and complete customer satisfaction. We aim to
-                        become the most trusted home appliance repair experts in the city.
+                    <div className="flex items-center justify-center gap-3 mt-4">
+                        <FaStar className="text-yellow-400 text-3xl" />
+                        <p className="text-xl font-semibold dark:text-white">
+                            10+ Years of Experience
+                        </p>
+                    </div>
+
+
+                    <p className="mt-4 text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+                        Our skilled technicians have over a decade of hands-on experience in
+                        repairing and servicing all major home appliances. This ensures accurate
+                        troubleshooting, perfect installations, and long-lasting repair quality
+                        for every customer we serve.
                     </p>
                 </motion.div>
+
 
                 {/* Call to Action */}
                 <motion.div

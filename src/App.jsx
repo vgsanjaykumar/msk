@@ -8,19 +8,19 @@ import AboutPage from './component/AboutPage'
 import ServicesPage from './component/Allsection'
 import Footer from './component/Footer1'
 import ContactPage from './component/ContactPage'
+import Gallery from './component/Gallery'
 
 const App = () => {
   return (
     <div>
       <Navbar />
       <Hero />
-
-      <ServiceBoxes />
-
       <ServicesPage />
       <AboutPage />
       <WhyChooseUs />
-      <ContactPage/>
+      <ServiceBoxes />
+      <Gallery />
+      <ContactPage />
       <Footer />
 
     </div>
