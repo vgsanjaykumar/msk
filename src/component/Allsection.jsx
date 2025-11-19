@@ -18,10 +18,6 @@ export default function ServicesPage() {
       transition-all duration-300
     "
         >
-
-            {/* ========================= */}
-            {/*         MAIN TITLE        */}
-            {/* ========================= */}
             <section className="py-20 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold text-purple-700 dark:text-gray-100">
                     Our Primary Goal
@@ -67,9 +63,6 @@ export default function ServicesPage() {
     );
 }
 
-/* ====================================================== */
-/*  SINGLE BOX (Dark + Light Mode Perfect Matching)       */
-/* ====================================================== */
 function ACBox({ icon, title, desc }) {
     return (
         <motion.div
@@ -101,9 +94,7 @@ function ACBox({ icon, title, desc }) {
     );
 }
 
-/* ====================================================== */
-/*                AC SERVICE SECTION                      */
-/* ====================================================== */
+
 function ACServices() {
     return (
         <section className="px-6 max-w-7xl mx-auto" id="ac">
@@ -124,9 +115,7 @@ function ACServices() {
     );
 }
 
-/* ====================================================== */
-/*      WASHING MACHINE SERVICE                           */
-/* ====================================================== */
+
 function WashingMachineServices() {
     return (
         <section className="px-6 max-w-7xl mx-auto">
@@ -147,9 +136,7 @@ function WashingMachineServices() {
     );
 }
 
-/* ====================================================== */
-/*      REFRIGERATOR SERVICE                              */
-/* ====================================================== */
+
 function RefrigeratorServices() {
     return (
         <section className="px-6 max-w-7xl mx-auto">
@@ -171,9 +158,7 @@ function RefrigeratorServices() {
 }
 
 
-/* ====================================================== */
-/*              TELEVISION SERVICE SECTION                */
-/* ====================================================== */
+
 function TVServices() {
     return (
         <section className="px-6 max-w-7xl mx-auto">

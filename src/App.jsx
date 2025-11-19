@@ -10,6 +10,7 @@ import Footer from './component/Footer1'
 import ContactPage from './component/ContactPage'
 import Gallery from './component/Gallery'
 import BrandsSwiper from './component/BrandSwiper'
+import FloatingActions from './component/Floating'
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
       <Gallery />
       <ContactPage />
       <Footer />
+      <FloatingActions/>
 
     </div>
   )

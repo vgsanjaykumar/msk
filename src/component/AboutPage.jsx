@@ -77,8 +77,7 @@ export default function AboutPage() {
                     </motion.div>
                 </div>
 
-                {/* ⭐ EXPERIENCE SECTION — Added */}
-                {/* ⭐ EXPERIENCE SECTION — With Icon */}
+        
                 <motion.div
                     variants={fadeUp}
                     initial="hidden"

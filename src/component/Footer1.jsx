@@ -71,7 +71,7 @@ export default function Footer() {
                                     href="tel:+919600417117"
                                     className="hover:text-cyan-500 dark:hover:text-cyan-300 transition"
                                 >
-                                    +91 96004 17117
+                                    +91 63744 39209
                                 </a>
                             </p>
                         </div>

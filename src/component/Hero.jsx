@@ -8,12 +8,12 @@ export default function Hero() {
             {/* Background image */}
             <div className="absolute inset-0">
                 <img
-                    src="/assets/hero.jpg"
+                    src="/herobaneer2.png"
                     alt="Home appliances background"
-                    className="w-full h-full object-cover object-center opacity-90"
+                    className="w-full h-full object-cover object-center "
                     loading="eager"
                 />
-                <div className="absolute inset-0 bg-gray-900/40 backdrop-blur-sm" />
+                <div className="absolute inset-0 bg-gray-900/40 " />
             </div>
 
             {/* Content */}
@@ -64,7 +64,7 @@ export default function Hero() {
 
                                 {/* WhatsApp */}
                                 <a
-                                    href="https://wa.me/919600417117"
+                                    href="https://wa.me/916374439209"
                                     target="_blank"
                                     className="bg-green-500 hover:bg-green-400 text-white p-3 rounded-full transition shadow-md"
                                     aria-label="WhatsApp"
@@ -99,7 +99,7 @@ export default function Hero() {
             </div>
 
             {/* Mobile spacing fix */}
-          
+
         </section>
     );
 }
