@@ -29,6 +29,9 @@ export default function BrandSwiper({ logos = [] }) {
             "/brands/Voltas.png",
             "/brands/Whirlpool.png",
             "/brands/Hitachi.png",
+            "/brands/Midea.png",
+            "/brands/Mitsubishi.png",
+            "/brands/O general.png",
         ];
 
     return (
