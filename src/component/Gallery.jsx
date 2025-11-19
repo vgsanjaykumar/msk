@@ -140,7 +140,7 @@ export default function GalleryMasonry({ count = 9, images = defaultImages }) {
                     column-gap: 1rem;
                     column-count: 1;
                 }
-                @media (min-width: 640px) { .masonry-grid { column-count: 2; } }
+                @media (min-width: 640px) { .masonry-grid { column-count: 3; } }
                 @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
                 @media (min-width: 1280px) { .masonry-grid { column-count: 3; } }
 
