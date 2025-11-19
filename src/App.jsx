@@ -5,25 +5,24 @@ import Hero from './component/Hero'
 import ServiceBoxes from './component/ServiceBoxes'
 import WhyChooseUs from './component/WhyChooseUs'
 import AboutPage from './component/AboutPage'
-import ACService from './component/ACService'
-import ACSection from './component/TvSection'
-import TelevisionServiceSection from './component/TvSection'
 import ServicesPage from './component/Allsection'
 import Footer from './component/Footer1'
+import ContactPage from './component/ContactPage'
 
 const App = () => {
   return (
     <div>
-      <Navbar/>
-      <Hero/>
-     
-      <ServiceBoxes/>
+      <Navbar />
+      <Hero />
 
-      <ServicesPage/>
+      <ServiceBoxes />
+
+      <ServicesPage />
       <AboutPage />
-      <WhyChooseUs/>
-      <Footer/>
-     
+      <WhyChooseUs />
+      <ContactPage/>
+      <Footer />
+
     </div>
   )
 }
