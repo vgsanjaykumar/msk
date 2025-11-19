@@ -2,12 +2,13 @@
 import React, { useState } from "react";
 import {
     FaWhatsapp,
-    FaFacebookF,
     FaInstagram,
     FaMapMarkerAlt,
     FaPhoneAlt,
     FaEnvelope,
 } from "react-icons/fa";
+
+import { SiGmail } from "react-icons/si";
 
 export default function ContactPage() {
     const whatsappNumber = "916374439209";
@@ -129,8 +130,8 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <div className="text-sm text-gray-600 dark:text-gray-300">Email</div>
-                                        <a href="mailto:sanjaykumarvgs@gmail.com" className="font-medium text-black dark:text-white text-base">
-                                            sanjaykumarvgs@gmail.com
+                                        <a href="mailto:karthishanmugam1712@gmail.com" className="font-medium text-black dark:text-white text-base">
+                                            karthishanmugam1712@gmail.com
                                         </a>
                                     </div>
                                 </div>
@@ -147,12 +148,17 @@ export default function ContactPage() {
                                         <FaWhatsapp /> WhatsApp
                                     </a>
 
-                                    <a className="w-10 h-10 flex items-center justify-center rounded-full bg-pink-500 hover:bg-pink-400 text-white shadow">
+                                    <a href="https://www.instagram.com/msk_solution_24hr?utm_source=qr&igsh=MWsxazl6YnV5cmw4dw==" className="w-10 h-10 flex items-center justify-center rounded-full bg-pink-500 hover:bg-pink-400 text-white shadow">
                                         <FaInstagram />
                                     </a>
 
-                                    <a className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-500 text-white shadow">
-                                        <FaFacebookF />
+                                    <a
+                                        href="mailto:karthishanmugam1712@gmail.com"
+                                        className="w-10 h-10 flex items-center justify-center rounded-full 
+             bg-blue-600 hover:bg-blue-500 text-white shadow"
+                                        aria-label="Send Email"
+                                    >
+                                        <SiGmail className="text-xl" />
                                     </a>
                                 </div>
                             </div>

@@ -41,9 +41,9 @@ export default function ServiceBoxes() {
       phone: "6374439209",
     },
     {
-      title: "CCTV Installation",
-      img: "/assets/servies/cctv.png",
-      desc: "Home & office CCTV setup, wiring, and maintenance.",
+      title: "Air cooler",
+      img: "/assets/servies/air cooler.png",
+      desc: "Home & office Air cooler setup, wiring, and maintenance.",
       phone: "6374439209",
     },
     {

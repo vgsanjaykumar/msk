@@ -8,7 +8,7 @@ export default function Hero() {
             {/* Background image */}
             <div className="absolute inset-0">
                 <img
-                    src="/herobaneer2.png"
+                    src="/assets/hero.jpg"
                     alt="Home appliances background"
                     className="w-full h-full object-cover object-center "
                     loading="eager"
@@ -74,7 +74,7 @@ export default function Hero() {
 
                                 {/* Instagram */}
                                 <a
-                                    href="#"
+                                    href="https://www.instagram.com/msk_solution_24hr?utm_source=qr&igsh=MWsxazl6YnV5cmw4dw=="
                                     target="_blank"
                                     className="bg-pink-500 hover:bg-pink-400 text-white p-3 rounded-full transition shadow-md"
                                     aria-label="Instagram"
@@ -82,15 +82,7 @@ export default function Hero() {
                                     <FaInstagram size={20} />
                                 </a>
 
-                                {/* Facebook */}
-                                <a
-                                    href="#"
-                                    target="_blank"
-                                    className="bg-blue-600 hover:bg-blue-500 text-white p-3 rounded-full transition shadow-md"
-                                    aria-label="Facebook"
-                                >
-                                    <FaFacebookF size={18} />
-                                </a>
+                          
                             </div>
 
                         </div>

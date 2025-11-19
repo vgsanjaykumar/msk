@@ -18,8 +18,8 @@ const App = () => {
       <Navbar />
       <Hero />
       <ServicesPage />
-      <AboutPage />
       <BrandsSwiper />
+      <AboutPage />
       <WhyChooseUs />
       <ServiceBoxes />
       <Gallery />

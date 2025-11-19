@@ -49,7 +49,7 @@ export default function AboutPage() {
                     >
                         <div className="w-72 h-72 md:w-96 md:h-96 rounded-xl overflow-hidden shadow-xl bg-gray-200 dark:bg-white/10">
                             <img
-                                src="/assets/hero.jpg"
+                                src="/herobaneer2.png"
                                 alt="About us"
                                 className="w-full h-full object-cover"
                             />

@@ -64,7 +64,7 @@ export default function Footer() {
                         </h4>
 
                         <div className="text-sm text-gray-700 dark:text-gray-300">
-                            <p>msksolution@gmail.com</p>
+                            <p>karthishanmugam1712@gmail.com</p>
                             <p className="mt-2">
                                 Tel:{" "}
                                 <a
