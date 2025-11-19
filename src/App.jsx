@@ -9,6 +9,7 @@ import ServicesPage from './component/Allsection'
 import Footer from './component/Footer1'
 import ContactPage from './component/ContactPage'
 import Gallery from './component/Gallery'
+import BrandsSwiper from './component/BrandSwiper'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Hero />
       <ServicesPage />
       <AboutPage />
+      <BrandsSwiper />
       <WhyChooseUs />
       <ServiceBoxes />
       <Gallery />
