@@ -77,7 +77,7 @@ export default function AboutPage() {
                     </motion.div>
                 </div>
 
-        
+
                 <motion.div
                     variants={fadeUp}
                     initial="hidden"
@@ -87,7 +87,7 @@ export default function AboutPage() {
         mt-16 text-center 
         p-10 rounded-xl shadow-lg 
         bg-purple-100 dark:bg-white/10 
-        border border-purple-300 dark:border-white/10
+        border border-purple-200 dark:border-white/10
     "
                 >
                     <div className="flex items-center justify-center gap-3 mt-4">

@@ -72,7 +72,7 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
 
-                    <aside className="rounded-xl overflow-hidden shadow-lg bg-gray-50 dark:bg-slate-800">
+                    <aside className="rounded-xl overflow-hidden shadow-lg bg-purple-200 dark:bg-slate-800">
 
 
                         <div className="w-full h-44 sm:h-56 md:h-64 lg:h-72 overflow-hidden">
@@ -85,7 +85,7 @@ export default function ContactPage() {
 
 
                         <div className="p-6 sm:p-8">
-                            <h2 className="text-xl sm:text-2xl font-bold text-black dark:text-white">
+                            <h2 className="text-xl sm:text-2xl font-bold text-purple-600 dark:text-white">
                                 Contact MSK Solution
                             </h2>
 
@@ -167,9 +167,9 @@ export default function ContactPage() {
                     </aside>
 
 
-                    <main className="rounded-xl p-6 sm:p-8 shadow-lg bg-white dark:bg-slate-800">
+                    <main className="rounded-xl p-6 sm:p-8 shadow-lg bg-purple-200 dark:bg-slate-800">
 
-                        <h3 className="text-lg sm:text-xl font-semibold text-black dark:text-white">
+                        <h3 className="text-lg sm:text-xl font-semibold text-purple-600 dark:text-white">
                             Book a Service
                         </h3>
 
@@ -177,7 +177,7 @@ export default function ContactPage() {
 
 
                             <div>
-                                <label className="text-sm font-medium">Service</label>
+                                <label className="text-sm font-medium text-black dark:text-white">Service</label>
                                 <select
                                     value={form.service}
                                     onChange={(e) => setForm({ ...form, service: e.target.value })}

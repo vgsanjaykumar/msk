@@ -44,7 +44,7 @@ export default function GalleryMasonry({ count = 9, images = defaultImages }) {
 
                 {/* Heading */}
                 <div className="text-center mb-8">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-purple-700 dark:text-white">
                         Some of Our Works
                     </h2>
                     <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">

@@ -11,6 +11,7 @@ import ContactPage from './component/ContactPage'
 import Gallery from './component/Gallery'
 import BrandsSwiper from './component/BrandSwiper'
 import FloatingActions from './component/Floating'
+import FocusGrid from './component/Foucus'
 
 const App = () => {
   return (
@@ -18,10 +19,12 @@ const App = () => {
       <Navbar />
       <Hero />
       <ServicesPage />
+   
       <BrandsSwiper />
       <AboutPage />
       <WhyChooseUs />
-      <ServiceBoxes />
+      <FocusGrid />
+      {/* <ServiceBoxes /> */}
       <Gallery />
       <ContactPage />
       <Footer />
