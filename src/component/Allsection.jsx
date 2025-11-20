@@ -118,7 +118,7 @@ function ACServices() {
 
 function WashingMachineServices() {
     return (
-        <section className="px-6 max-w-7xl mx-auto">
+        <section className="px-6 max-w-7xl mx-auto" id="washing-machine">
             <h2 className="text-center text-3xl md:text-4xl font-bold text-black dark:text-gray-100">
                 Washing Machine Services
             </h2>
@@ -139,7 +139,7 @@ function WashingMachineServices() {
 
 function RefrigeratorServices() {
     return (
-        <section className="px-6 max-w-7xl mx-auto">
+        <section className="px-6 max-w-7xl mx-auto" id="refrigerator">
             <h2 className="text-center text-3xl md:text-4xl font-bold text-black dark:text-gray-100">
                 Refrigerator Services
             </h2>
@@ -161,7 +161,7 @@ function RefrigeratorServices() {
 
 function TVServices() {
     return (
-        <section className="px-6 max-w-7xl mx-auto">
+        <section className="px-6 max-w-7xl mx-auto" id="television">
             <h2 className="text-center text-3xl md:text-4xl font-bold text-black dark:text-gray-100">
                 Television Services
             </h2>
