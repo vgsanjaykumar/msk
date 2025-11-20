@@ -113,7 +113,7 @@ export default function FocusGrid() {
                                 </div>
                                 <div>
                                     <h3 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white">{it.title}</h3>
-                                    <p className="mt-1 text-xs sm:text-sm text-gray-600 dark:text-gray-300">{it.desc}</p>
+                                    {/* <p className="mt-1 text-xs sm:text-sm text-gray-600 dark:text-gray-300">{it.desc}</p> */}
                                 </div>
                             </button>
                         ))}
@@ -131,7 +131,7 @@ export default function FocusGrid() {
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.98 }}
                                     transition={{ duration: 0.45 }}
-                                    className="w-full h-72 sm:h-80 md:h-96 object-cover rounded-xl bg-gray-100"
+                                    className="w-full h-72 sm:h-72 md:h-72 object-cover rounded-xl bg-gray-100"
                                 />
                             </AnimatePresence>
 
@@ -158,7 +158,7 @@ export default function FocusGrid() {
                                 </div>
                                 <div>
                                     <h3 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white">{it.title}</h3>
-                                    <p className="mt-1 text-xs sm:text-sm text-gray-600 dark:text-gray-300">{it.desc}</p>
+                                    {/* <p className="mt-1 text-xs sm:text-sm text-gray-600 dark:text-gray-300">{it.desc}</p> */}
                                 </div>
                             </button>
                         ))}
