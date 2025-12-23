@@ -38,7 +38,7 @@ export default function BrandSwiper({ logos = [] }) {
         <div className="w-full py-6 transition-colors duration-300 bg-white dark:bg-slate-900">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="text-center mb-4">
-                    <h3 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-100 text-purple-500 dark:text-cyan-400">
+                    <h3 className="text-2xl md:text-3xl font-semibold   text-purple-500 dark:text-cyan-400">
                         Brands We Give Service
                     </h3>
                 </div>
