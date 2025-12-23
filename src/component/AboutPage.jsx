@@ -22,21 +22,28 @@ export default function AboutPage() {
         transition-all duration-300
         py-20
       "
+            aria-label="About MSK Solution AC Service in Coimbatore"
         >
             <div className="max-w-7xl mx-auto px-6">
 
-                {/* Heading */}
-                <motion.h2
+                {/* MAIN SEO HEADING */}
+                <motion.h1
                     variants={fadeUp}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="text-center text-4xl md:text-5xl font-bold mb-10 text-purple-700 dark:text-white"
+                    className="text-center text-4xl md:text-5xl font-bold mb-6 dark:text-cyan-400 text-purple-600"
                 >
-                    About Us
-                </motion.h2>
+                    AC Service in Coimbatore – MSK Solution
+                </motion.h1>
 
-                {/* Top Section */}
+                <p className="text-center max-w-3xl mx-auto text-lg text-gray-700 dark:text-gray-300 mb-14">
+                    MSK Solution is a trusted provider of professional AC service in Coimbatore,
+                    offering reliable AC repair, installation and maintenance services across
+                    all areas of the city.
+                </p>
+
+                {/* CONTENT SECTION */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
                     {/* Image */}
@@ -50,64 +57,72 @@ export default function AboutPage() {
                         <div className="w-72 h-72 md:w-96 md:h-96 rounded-xl overflow-hidden shadow-xl bg-gray-200 dark:bg-white/10">
                             <img
                                 src="/herobaneer2.png"
-                                alt="About us"
+                                alt="AC service technicians in Coimbatore - MSK Solution"
                                 className="w-full h-full object-cover"
+                                loading="lazy"
                             />
                         </div>
                     </motion.div>
 
-                    {/* Content */}
+                    {/* Text Content */}
                     <motion.div
                         variants={fadeUp}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                     >
-                        <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-purple-400 dark:text-gray-100">
-                            We Provide Trusted Home Appliance Services
-                        </h3>
+                        <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-cyan-500">
+                            Trusted Home Appliance Repair Experts in Coimbatore
+                        </h2>
+
+                        <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-4">
+                            At <strong>MSK Solution</strong>, we specialize in delivering affordable and
+                            dependable home appliance repair services. Our expert technicians provide
+                            fast and efficient <strong>AC service in Coimbatore</strong>, ensuring
+                            customer satisfaction with every visit.
+                        </p>
+
+                        <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-4">
+                            We handle <strong>AC repair, AC installation, AC gas charging</strong>,
+                            washing machine service, refrigerator repair and TV service using modern
+                            tools and genuine spare parts.
+                        </p>
+
                         <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                            At MSK Solutions, we are committed to delivering high-quality,
-                            affordable and reliable home appliance repair services. With a
-                            team of trained and experienced technicians, we ensure fast
-                            diagnosis, transparent pricing and professional solutions for all
-                            major home appliances including AC, Washing Machine, Refrigerator
-                            and TV.
+                            Our services are available across Gandhipuram, Peelamedu, RS Puram,
+                            Saravanampatti and all major areas in Coimbatore.
                         </p>
                     </motion.div>
                 </div>
 
-
+                {/* EXPERIENCE */}
                 <motion.div
                     variants={fadeUp}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     className="
-        mt-16 text-center 
-        p-10 rounded-xl shadow-lg 
-        bg-purple-100 dark:bg-white/10 
-        border border-purple-200 dark:border-white/10
-    "
+            mt-16 text-center 
+            p-10 rounded-xl shadow-lg 
+            bg-purple-100 dark:bg-white/10 
+            border border-purple-200 dark:border-white/10
+          "
                 >
-                    <div className="flex items-center justify-center gap-3 mt-4">
+                    <div className="flex items-center justify-center gap-3 mt-2">
                         <FaStar className="text-yellow-400 text-3xl" />
-                        <p className="text-xl font-semibold dark:text-white">
-                            10+ Years of Experience
-                        </p>
+                        <h3 className="text-xl font-semibold">
+                            10+ Years of Experience in AC Service
+                        </h3>
                     </div>
 
-
                     <p className="mt-4 text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
-                        Our skilled technicians have over a decade of hands-on experience in
-                        repairing and servicing all major home appliances. This ensures accurate
-                        troubleshooting, perfect installations, and long-lasting repair quality
-                        for every customer we serve.
+                        With over a decade of experience, our technicians ensure accurate diagnosis,
+                        professional installation and long-lasting repairs. MSK Solution is known for
+                        dependable and quick AC service in Coimbatore.
                     </p>
                 </motion.div>
 
-
-                {/* Call to Action */}
+                {/* CALL TO ACTION */}
                 <motion.div
                     variants={fadeUp}
                     initial="hidden"
@@ -119,14 +134,15 @@ export default function AboutPage() {
                         href="tel:+916374439209"
                         className="
               inline-block 
-              bg-purple-700 hover:bg-purple-400 
+              bg-purple-700 hover:bg-purple-500 
               dark:bg-cyan-500 dark:hover:bg-cyan-400
               text-white text-lg font-semibold 
               px-10 py-4 rounded-full shadow-lg 
               transition hover:scale-105
             "
+                        aria-label="Call MSK Solution for AC Service in Coimbatore"
                     >
-                        Call Us Now – 63744 39209
+                        Call Now for AC Service – 63744 39209
                     </a>
                 </motion.div>
 
