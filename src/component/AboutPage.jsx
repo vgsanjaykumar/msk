@@ -32,12 +32,13 @@ export default function AboutPage() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="text-center text-4xl md:text-5xl font-bold mb-6 dark:text-cyan-400 text-purple-600"
+                    style={{ display: "none" }}
+                    className="text-center hidden text-4xl md:text-5xl font-bold mb-6 dark:text-cyan-400 text-purple-600 sr-only"
                 >
-                    AC Service in Coimbatore – MSK Solution
+                    AC Service in Coimbatore - MSK Solution
                 </motion.h1>
 
-                <p className="text-center max-w-3xl mx-auto text-lg text-gray-700 dark:text-gray-300 mb-14">
+                <p className="text-center max-w-3xl mx-auto text-lg text-gray-700 dark:text-gray-300 mb-14 sr-only" style={{ display: "none" }}>
                     MSK Solution is a trusted provider of professional AC service in Coimbatore,
                     offering reliable AC repair, installation and maintenance services across
                     all areas of the city.
