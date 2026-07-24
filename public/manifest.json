@@ -1,0 +1,23 @@
+{
+  "name": "MSK Solution - AC Service Coimbatore",
+  "short_name": "MSK Solution",
+  "description": "Professional AC service, repair, installation, gas filling and AMC in Coimbatore. Washing machine, refrigerator and TV repair.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7c3aed",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/assets/msk-logo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/assets/msk-logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

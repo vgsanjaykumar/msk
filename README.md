@@ -1,16 +1,52 @@
-# React + Vite
+# MSK Solution — AC Service Coimbatore
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketing landing page for MSK Solution, an AC service and home appliance
+repair company in Coimbatore. Built with React 19 + Vite + Tailwind CSS,
+optimized for local SEO, performance and accessibility.
 
-Currently, two official plugins are available:
+## Getting started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install
+npm run dev       # local dev server
+npm run build     # production build -> dist/
+npm run preview   # preview the production build
+npm run lint      # ESLint
+```
 
-## React Compiler
+## Project structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+src/
+  config/site.js        # Single source of truth: phone, WhatsApp, email, address, keywords
+  seo/
+    SEO.jsx              # React Helmet Async component (title, meta, OG, Twitter, JSON-LD)
+    schema.js            # JSON-LD builders (LocalBusiness, Organization, Service, FAQ, Breadcrumb)
+  components/
+    common/              # Reusable UI: Button, SectionHeading, ServiceCard, SkipLink, motion presets
+    layout/               # Navbar, Footer, FloatingActions
+    sections/             # Hero, Services, About, WhyChooseUs, FocusGrid, Gallery, FAQ, Contact, BrandsSwiper
+public/
+  manifest.json, robots.txt, sitemap.xml
+  assets/, brands/, our-work/   # images (kebab-case, no spaces)
+```
 
-## Expanding the ESLint configuration
+## Updating business info
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Everything phone/WhatsApp/email/address-related lives in `src/config/site.js`.
+Change it once and it propagates through the navbar, footer, contact form,
+floating buttons and structured data automatically.
+
+## SEO
+
+- Dynamic meta tags + JSON-LD are rendered via `react-helmet-async`
+  (`src/seo/SEO.jsx`), with a baseline copy of the same tags in `index.html`
+  as a no-JS fallback.
+- `public/robots.txt` and `public/sitemap.xml` are ready for submission to
+  Google Search Console — update the sitemap if new sections/pages are added.
+- FAQ content in `src/components/sections/FAQ.jsx` is the single source of
+  truth for both the visible FAQ UI and the `FAQPage` JSON-LD — keep them in
+  sync if you edit questions.
+
+See `OPTIMIZATIONS.md` for the full list of changes made during the
+enhancement pass.
