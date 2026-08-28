@@ -44,7 +44,7 @@ export default function Gallery() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Our Work"
-          title="Recent AC Service & Repair Jobs in Coimbatore"
+          title="Recent Appliance Service & Repair Jobs in Coimbatore"
           subtitle="Real installation and repair work completed by MSK Solution technicians."
         />
 

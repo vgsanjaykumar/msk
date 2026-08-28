@@ -1,17 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
-import Button from "../common/Button";
+import { Link } from "react-router-dom";
 import SectionHeading from "../common/SectionHeading";
 import AnimatedCounter from "../common/AnimatedCounter";
 import { fadeUp, slideLeft, slideRight, viewportOnce } from "../common/motionPresets";
-import { siteConfig, telLink } from "../../config/site";
+import { siteConfig } from "../../config/site";
 
+/** Company-wide "who we are" block used on the About page. */
 export default function About() {
   return (
     <section
-      className="w-full bg-white text-black dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-800 dark:text-white transition-colors duration-300 py-20"
-      aria-label={`About ${siteConfig.name} AC service in Coimbatore`}
+      className="w-full bg-white text-black dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-800 dark:text-white transition-colors duration-300 py-16 md:py-20"
+      aria-label={`About ${siteConfig.name}`}
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -25,7 +26,7 @@ export default function About() {
             <div className="w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden shadow-xl bg-gray-200 dark:bg-white/10 group">
               <img
                 src="/hero-banner.png"
-                alt="MSK Solution AC service technician working in Coimbatore"
+                alt="MSK Solution appliance service technician working in Coimbatore"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 motion-reduce:group-hover:scale-100"
                 loading="lazy"
                 width="480"
@@ -42,31 +43,32 @@ export default function About() {
           >
             <SectionHeading
               eyebrow="About Us"
-              title="Trusted AC Service Experts in Coimbatore"
+              title="Trusted Appliance Service Experts in Coimbatore"
               level={2}
               align="left"
               className="mb-6"
             />
 
             <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-4">
-              At <strong>{siteConfig.name}</strong>, we specialize in
-              affordable, dependable <strong>AC service in Coimbatore</strong>
-              . Our expert AC technicians provide fast AC repair, AC
-              installation and AC gas filling, so your home or office stays
-              cool without long waits.
+              <strong>{siteConfig.name}</strong> is an independent AC service
+              and home appliance repair provider based in Coimbatore. We
+              started with AC repair and installation, and have grown into a
+              trusted team for washing machine, refrigerator and TV service
+              as well.
             </p>
 
             <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-4">
-              We handle <strong>AC maintenance, AC AMC plans and AC deep
-              cleaning</strong> for both split and window ACs, plus washing
-              machine, refrigerator and TV service — using genuine spare
-              parts and modern tools.
+              Every technician on our team is trained to diagnose the actual
+              fault before recommending a repair, and we use genuine or
+              manufacturer-recommended spare parts so the fix lasts.
             </p>
 
             <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-              Search &ldquo;AC service near me&rdquo; and you&rsquo;ll find us
-              across {siteConfig.areasServed.slice(0, 4).join(", ")} and all
-              major areas of Coimbatore.
+              We currently serve {siteConfig.areasServed.slice(0, 4).join(", ")}{" "}
+              and other areas across Coimbatore — see our full{" "}
+              <Link to="/areas-we-serve" className="text-purple-700 dark:text-cyan-400 underline underline-offset-2">
+                service area list
+              </Link>.
             </p>
           </motion.div>
         </div>
@@ -82,28 +84,15 @@ export default function About() {
             <FaStar className="text-yellow-400 text-3xl" aria-hidden="true" />
             <h3 className="text-xl font-semibold">
               <AnimatedCounter value={10} suffix="+" /> Years of Experience in
-              AC Service
+              Appliance Service
             </h3>
           </div>
 
           <p className="mt-4 text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
-            With over a decade of experience, our technicians ensure accurate
-            diagnosis, professional AC installation and long-lasting repairs.
-            {" "}{siteConfig.name} is known for dependable, quick AC service
-            in Coimbatore — including emergency AC repair.
+            With over a decade of hands-on experience, our technicians focus
+            on accurate diagnosis, careful installation and repairs that are
+            built to last — backed by a service warranty on every visit.
           </p>
-        </motion.div>
-
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="text-center mt-16"
-        >
-          <Button href={telLink()} variant="primary">
-            Call Now for AC Service – {siteConfig.phoneDisplay}
-          </Button>
         </motion.div>
       </div>
     </section>

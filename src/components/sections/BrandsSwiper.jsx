@@ -12,7 +12,7 @@ const brands = [
   "Voltas", "Whirlpool", "Hitachi", "Midea", "Mitsubishi", "o-general",
 ];
 
-export default function BrandsSwiper() {
+export default function BrandsSwiper({ title = "Brands We Service" }) {
   return (
     <section className="w-full py-8 md:py-10 transition-colors duration-300 bg-white dark:bg-slate-900" aria-label="Brands we service">
       <motion.div
@@ -24,7 +24,7 @@ export default function BrandsSwiper() {
       >
         <div className="text-center mb-6">
           <h2 className="text-2xl md:text-3xl font-semibold text-purple-600 dark:text-cyan-400">
-            AC & Appliance Brands We Service
+            {title}
           </h2>
         </div>
 

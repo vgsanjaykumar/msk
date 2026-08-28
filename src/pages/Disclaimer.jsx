@@ -7,7 +7,7 @@ import { siteConfig } from "../config/site";
 
 export default function Disclaimer() {
   return (
-    <>
+    < section className="w-full bg-white dark:bg-slate-900 transition-colors duration-300">
       <SEO
         title={`Disclaimer - ${siteConfig.name}`}
         description={`Disclaimer for ${siteConfig.name}, an independent AC service and home appliance repair provider in Coimbatore.`}
@@ -68,6 +68,6 @@ export default function Disclaimer() {
           ← Back to Home
         </Link>
       </motion.section>
-    </>
+    </section>
   );
 }

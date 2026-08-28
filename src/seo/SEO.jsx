@@ -8,7 +8,7 @@ import { buildGraph } from "./schema";
  * theme-color, language and JSON-LD structured data.
  */
 export default function SEO({
-  title = "AC Service Coimbatore | AC Repair & Installation - MSK Solution",
+  title = "Appliance Repair Services in Coimbatore | MSK Solution",
   description = siteConfig.description,
   keywords = siteConfig.keywords,
   path = "/",

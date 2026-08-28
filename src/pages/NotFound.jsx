@@ -8,7 +8,7 @@ import { siteConfig, telLink } from "../config/site";
 
 export default function NotFound() {
   return (
-    <>
+    < section className="w-full bg-white dark:bg-slate-900 transition-colors duration-300">
       <SEO
         title={`Page Not Found - ${siteConfig.name}`}
         description="The page you're looking for doesn't exist. Return home for AC service in Coimbatore."
@@ -40,6 +40,6 @@ export default function NotFound() {
           </Button>
         </div>
       </motion.section>
-    </>
+    </section>
   );
 }

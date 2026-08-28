@@ -25,15 +25,19 @@ const reasons = [
   { icon: FaShieldAlt, title: "Warranty Provided", desc: "We provide service warranty for all repairs and installations." },
 ];
 
-export default function WhyChooseUs() {
+export default function WhyChooseUs({
+  eyebrow = "Why Choose Us",
+  title = "Reasons Coimbatore Trusts MSK Solution",
+  level = 2,
+}) {
   return (
     <section className="relative w-full py-16 md:py-20 bg-white text-black dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-800 dark:text-white transition-colors duration-300">
       <FloatingBlobs variant="light" />
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
-          eyebrow="Why Choose Us"
-          title="Reasons Coimbatore Trusts Our AC Service"
-          level={2}
+          eyebrow={eyebrow}
+          title={title}
+          level={level}
           align="left"
         />
 

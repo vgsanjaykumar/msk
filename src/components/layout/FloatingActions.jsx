@@ -8,7 +8,7 @@ export default function FloatingActions({ showBackToTop = true }) {
   }
 
   return (
-    <div className="fixed right-4 bottom-6 z-40 flex flex-col items-center gap-3">
+    <div className="hidden md:flex fixed right-4 bottom-6 z-40 flex-col items-center gap-3">
       <a
         href={waLink("Hi MSK Solution, I need help with an AC service booking.")}
         target="_blank"

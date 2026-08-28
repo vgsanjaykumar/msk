@@ -97,13 +97,13 @@ export default function Contact() {
     <section
       id="contact"
       className="w-full bg-white dark:bg-slate-900 dark:text-gray-100 transition-colors duration-300"
-      aria-label="Contact and book AC service in Coimbatore"
+      aria-label="Contact MSK Solution in Coimbatore"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <SectionHeading
           eyebrow="Get In Touch"
-          title="Book AC Service in Coimbatore"
-          subtitle="Fast, reliable AC repair, installation and maintenance — call or message us for same-day service."
+          title="Contact MSK Solution"
+          subtitle="Questions about a repair, a quote, or an appliance service? Reach us by phone, WhatsApp, email or the form below."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">

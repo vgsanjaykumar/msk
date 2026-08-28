@@ -1,13 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { siteConfig, telLink } from "../../config/site";
-import SmartLink from "../common/SmartLink";
+import { services } from "../../data/services";
 
 const quickLinks = [
-  { label: "AC Service", href: "#ac-service" },
-  { label: "Washing Machine", href: "#washing-machine-repair" },
-  { label: "Refrigerator", href: "#refrigerator-service" },
-  { label: "Television", href: "#tv-repair" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  ...services.map((s) => ({ label: `${s.navLabel} Coimbatore`, href: s.path })),
+  { label: "Areas We Serve", href: "/areas-we-serve" },
+  { label: "Contact", href: "/contact" },
+  { label: "Book Service", href: "/book-service" },
+];
+
+const legalLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Disclaimer", href: "/disclaimer" },
 ];
@@ -36,12 +42,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               {quickLinks.map((item) => (
                 <li key={item.label}>
-                  <SmartLink
+                  <Link
                     to={item.href}
                     className="hover:text-purple-600 dark:hover:text-cyan-300 transition-colors"
                   >
                     {item.label}
-                  </SmartLink>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -72,6 +78,18 @@ export default function Footer() {
               <p className="mt-2">
                 {siteConfig.address.locality}, {siteConfig.address.region}
               </p>
+              <ul className="mt-4 flex md:justify-end gap-4">
+                {legalLinks.map((item) => (
+                  <li key={item.label}>
+                    <Link
+                      to={item.href}
+                      className="hover:text-purple-600 dark:hover:text-cyan-300 transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </address>
         </div>
@@ -79,7 +97,7 @@ export default function Footer() {
         <div className="mt-12 border-t border-gray-300 dark:border-white/10 pt-6">
           <p className="text-center text-sm text-gray-600 dark:text-gray-400">
             © {new Date().getFullYear()} {siteConfig.name}. All rights
-            reserved. Serving AC service Coimbatore and nearby areas.
+            reserved. Serving appliance service across Coimbatore and nearby areas.
           </p>
         </div>
       </div>

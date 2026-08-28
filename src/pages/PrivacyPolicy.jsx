@@ -7,7 +7,7 @@ import { siteConfig } from "../config/site";
 
 export default function PrivacyPolicy() {
   return (
-    <>
+    <section className="w-full bg-white dark:bg-slate-900 transition-colors duration-300">
       <SEO
         title={`Privacy Policy - ${siteConfig.name}`}
         description={`How ${siteConfig.name} collects, uses and protects information shared when booking AC service in Coimbatore.`}
@@ -76,6 +76,6 @@ export default function PrivacyPolicy() {
           ← Back to Home
         </Link>
       </motion.section>
-    </>
+    </  section>
   );
 }

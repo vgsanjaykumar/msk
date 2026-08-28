@@ -2,34 +2,39 @@ import React, { Suspense, lazy } from "react";
 import SEO from "../seo/SEO";
 import SectionSkeleton from "../components/common/SectionSkeleton";
 import Hero from "../components/sections/Hero";
-import { faqs } from "../data/faqs";
+import TrustIndicators from "../components/sections/TrustIndicators";
+import ServiceGrid from "../components/services/ServiceGrid";
+import CTASection from "../components/common/CTASection";
+import { generalFaqs } from "../data/generalFaqs";
 
 // Below-the-fold sections are code-split so the initial bundle stays small
 // and the hero/nav (LCP-critical content) load first.
-const Services = lazy(() => import("../components/sections/Services"));
 const BrandsSwiper = lazy(() => import("../components/sections/BrandsSwiper"));
-const About = lazy(() => import("../components/sections/About"));
 const WhyChooseUs = lazy(() => import("../components/sections/WhyChooseUs"));
-const FocusGrid = lazy(() => import("../components/sections/FocusGrid"));
-const Gallery = lazy(() => import("../components/sections/Gallery"));
-const FAQ = lazy(() => import("../components/sections/FAQ"));
-const Contact = lazy(() => import("../components/sections/Contact"));
+const ServiceProcess = lazy(() => import("../components/services/ServiceProcess"));
+const ServiceAreasTeaser = lazy(() => import("../components/sections/ServiceAreasTeaser"));
+const ServiceFAQ = lazy(() => import("../components/services/ServiceFAQ"));
 
 export default function Home() {
   return (
     <>
-      <SEO faqs={faqs} path="/" />
+      <SEO
+        title="Appliance Repair Services in Coimbatore | AC, TV, Fridge & Washing Machine"
+        description="Professional appliance repair and service solutions in Coimbatore for AC, TV, refrigerator and washing machines. Book a convenient service visit."
+        faqs={generalFaqs}
+        path="/"
+      />
       <Hero />
+      <TrustIndicators />
+      <ServiceGrid />
       <Suspense fallback={<SectionSkeleton />}>
-        <Services />
         <BrandsSwiper />
-        <About />
         <WhyChooseUs />
-        <FocusGrid />
-        <Gallery />
-        <FAQ />
-        <Contact />
+        <ServiceProcess />
+        <ServiceAreasTeaser />
+        <ServiceFAQ faqs={generalFaqs} eyebrow="FAQ" title="MSK Solution — Frequently Asked Questions" id="faq" />
       </Suspense>
+      <CTASection />
     </>
   );
 }

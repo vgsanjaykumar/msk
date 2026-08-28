@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
 import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 import { siteConfig, telLink, waLink } from "../../config/site";
 import useReducedMotion from "../common/useReducedMotion";
@@ -21,10 +22,10 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden  bg-white dark:bg-slate-900 transition-colors duration-300"
       aria-label="AC service and home appliance repair in Coimbatore"
     >
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0  overflow-hidden">
         <motion.img
           src="/hero-banner.png"
           alt="MSK Solution technician servicing a split AC unit in Coimbatore"
@@ -35,7 +36,7 @@ export default function Hero() {
           height="1080"
           style={prefersReducedMotion ? undefined : { y: parallaxY }}
         />
-        <div className="absolute inset-0 bg-gray-900/55" />
+        <div className="absolute inset-0 " />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-20 lg:py-28">
@@ -47,7 +48,7 @@ export default function Hero() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-xs sm:text-sm tracking-wider uppercase text-cyan-400/90 font-bold mb-4"
+            className="text-xs sm:text-sm tracking-wider uppercase text-purple-400/90 dark:text-cyan-400 font-bold mb-4"
           >
             {siteConfig.name} · Trusted AC Technicians
           </motion.p>
@@ -76,18 +77,19 @@ export default function Hero() {
               href={telLink()}
               whileHover={prefersReducedMotion ? undefined : { scale: 1.05, y: -1 }}
               whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
-              className="inline-flex items-center gap-2 bg-purple-700 hover:bg-purple-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg"
+              className="inline-flex items-center gap-2 :bg-purple-700 hover:bg-purple-600 dark:bg-cyan-600 dark:hover:bg-cyan-500 text-white font-semibold px-6 py-3 rounded-full shadow-lg"
             >
               📞 Call Now for AC Repair
             </motion.a>
-            <motion.a
-              href="#contact"
-              whileHover={prefersReducedMotion ? undefined : { scale: 1.05, y: -1 }}
-              whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold px-6 py-3 rounded-full backdrop-blur-sm transition-colors"
-            >
-              Book AC Service
-            </motion.a>
+            <Link to="/book-service">
+              <motion.span
+                whileHover={prefersReducedMotion ? undefined : { scale: 1.05, y: -1 }}
+                whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold px-6 py-3 rounded-full backdrop-blur-sm transition-colors"
+              >
+                Book AC Service
+              </motion.span>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

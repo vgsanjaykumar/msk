@@ -78,14 +78,19 @@ export function serviceSchemas() {
         "Scheduled AC maintenance and Annual Maintenance Contracts (AMC) for homes and offices.",
     },
     {
-      name: "AC Deep Cleaning Coimbatore",
+      name: "TV Repair Coimbatore",
       description:
-        "Deep cleaning of indoor and outdoor AC units to improve air quality and efficiency.",
+        "Repair of LED, LCD and Smart TV display, sound, power and connectivity faults.",
     },
     {
-      name: "Emergency AC Service Coimbatore",
+      name: "Washing Machine Repair Coimbatore",
       description:
-        "Same-day and emergency AC repair service across Coimbatore.",
+        "Repair of front-load and top-load washing machines for draining, spinning and leakage issues.",
+    },
+    {
+      name: "Refrigerator Repair Coimbatore",
+      description:
+        "Repair of single-door and double-door refrigerators for cooling, gas and compressor issues.",
     },
   ];
 

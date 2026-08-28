@@ -5,17 +5,16 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { siteConfig, telLink } from "../../config/site";
 import useReducedMotion from "../common/useReducedMotion";
-import SmartLink from "../common/SmartLink";
 
 const NAV_LINKS = [
   { label: "Home", link: "/" },
-  { label: "AC Service", link: "#ac-service" },
-  { label: "Washing Machine", link: "#washing-machine-repair" },
-  { label: "Refrigerator", link: "#refrigerator-service" },
-  { label: "Television", link: "#tv-repair" },
+  { label: "About", link: "/about" },
+  { label: "Services", link: "/services" },
+  { label: "Areas We Serve", link: "/areas-we-serve" },
+  { label: "Contact", link: "/contact" },
 ];
 
 const menuListVariants = {
@@ -134,13 +133,20 @@ export default function Navbar() {
           {/* DESKTOP NAV */}
           <nav aria-label="Primary" className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map((item) => (
-              <SmartLink
+              <NavLink
                 key={item.label}
                 to={item.link}
-                className="nav-underline px-3 py-2 rounded-md font-medium text-black/80 hover:text-purple-700 dark:text-white/80 dark:hover:text-cyan-300 transition-colors"
+                end={item.link === "/"}
+                className={({ isActive }) =>
+                  `nav-underline px-3 py-2 rounded-md font-medium transition-colors ${
+                    isActive
+                      ? "text-purple-700 dark:text-cyan-300"
+                      : "text-black/80 hover:text-purple-700 dark:text-white/80 dark:hover:text-cyan-300"
+                  }`
+                }
               >
                 {item.label}
-              </SmartLink>
+              </NavLink>
             ))}
           </nav>
 
@@ -150,11 +156,18 @@ export default function Navbar() {
               href={telLink()}
               whileHover={prefersReducedMotion ? undefined : { scale: 1.05 }}
               whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
-              className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 text-white dark:bg-cyan-500"
+              className="hidden xl:flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 text-white dark:bg-cyan-500"
               aria-label={`Call ${siteConfig.name} now`}
             >
               <span aria-hidden="true">📞</span> {siteConfig.phoneDisplay}
             </motion.a>
+
+            <Link
+              to="/book-service"
+              className="hidden lg:inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold border-2 border-purple-600 text-purple-700 hover:bg-purple-600 hover:text-white dark:border-cyan-400 dark:text-cyan-300 dark:hover:bg-cyan-500 dark:hover:text-slate-900 transition-colors"
+            >
+              Book Service
+            </Link>
 
             <motion.button
               onClick={() => setDark((v) => !v)}
@@ -252,19 +265,33 @@ export default function Navbar() {
               variants={menuListVariants}
               initial="hidden"
               animate="visible"
-              className="px-4 pb-6 bg-white dark:bg-slate-900 space-y-1 border-t border-black/5 dark:border-white/5 pt-3"
+              className="md:hidden overflow-hidden px-4 pb-6 bg-white dark:bg-slate-900 space-y-1 border-t border-black/5 dark:border-white/5 pt-3"
             >
               {NAV_LINKS.map((item) => (
-                <SmartLink
-                  key={item.label}
-                  to={item.link}
-                  variants={menuItemVariants}
-                  onClick={() => setMobileOpen(false)}
-                  className="block px-3 py-2.5 rounded-md hover:bg-black/5 dark:hover:bg-white/10"
-                >
-                  {item.label}
-                </SmartLink>
+                <motion.div key={item.label} variants={menuItemVariants}>
+                  <NavLink
+                    to={item.link}
+                    end={item.link === "/"}
+                    onClick={() => setMobileOpen(false)}
+                    className={({ isActive }) =>
+                      `block px-3 py-2.5 rounded-md hover:bg-black/5 dark:hover:bg-white/10 ${
+                        isActive ? "text-purple-700 dark:text-cyan-300 font-semibold" : ""
+                      }`
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                </motion.div>
               ))}
+              <motion.div variants={menuItemVariants}>
+                <Link
+                  to="/book-service"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-center gap-2 px-3 py-2.5 mt-2 rounded-md border-2 border-purple-600 text-purple-700 dark:border-cyan-400 dark:text-cyan-300 font-semibold"
+                >
+                  Book Service
+                </Link>
+              </motion.div>
               <motion.a
                 variants={menuItemVariants}
                 href={telLink()}
