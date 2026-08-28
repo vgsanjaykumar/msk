@@ -20,7 +20,7 @@ export default function Layout() {
       <ScrollManager />
       <SkipLink />
       <Navbar />
-      <main id="main-content" className="pb-16 md:pb-0">
+      <main id="main-content" className="sm:pb-0 md:pb-0">
         <Outlet />
       </main>
       <Footer />
