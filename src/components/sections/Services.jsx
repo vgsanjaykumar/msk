@@ -11,7 +11,8 @@ import {
 import Button from "../common/Button";
 import SectionHeading from "../common/SectionHeading";
 import ServiceCard from "../common/ServiceCard";
-import { staggerContainer } from "../common/motionPresets";
+import FloatingBlobs from "../common/FloatingBlobs";
+import { staggerContainer, viewportOnce } from "../common/motionPresets";
 import { telLink } from "../../config/site";
 
 const serviceGroups = [
@@ -70,7 +71,7 @@ function ServiceGroup({ group, level }) {
         variants={staggerContainer(0.1)}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={viewportOnce}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
       >
         {group.cards.map((card) => (
@@ -83,7 +84,8 @@ function ServiceGroup({ group, level }) {
 
 export default function Services() {
   return (
-    <div className="bg-white text-black dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-800 dark:text-white transition-colors duration-300">
+    <div className="relative bg-white text-black dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-800 dark:text-white transition-colors duration-300">
+      <FloatingBlobs />
       <div className="py-16 md:py-20 text-center px-6">
         <SectionHeading
           eyebrow="Our Services"

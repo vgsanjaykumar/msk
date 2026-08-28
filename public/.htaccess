@@ -1,0 +1,13 @@
+# Single-page app fallback for Apache/cPanel hosting.
+# Without this, a direct visit or refresh on a client-side route like
+# /privacy-policy returns a 404 from the server before React Router ever
+# runs. This rewrites any unknown path to index.html so the app can render
+# the correct route itself.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

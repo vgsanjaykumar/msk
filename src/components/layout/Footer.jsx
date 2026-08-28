@@ -1,5 +1,6 @@
 import React from "react";
 import { siteConfig, telLink } from "../../config/site";
+import SmartLink from "../common/SmartLink";
 
 const quickLinks = [
   { label: "AC Service", href: "#ac-service" },
@@ -7,6 +8,8 @@ const quickLinks = [
   { label: "Refrigerator", href: "#refrigerator-service" },
   { label: "Television", href: "#tv-repair" },
   { label: "Contact Us", href: "#contact" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Disclaimer", href: "/disclaimer" },
 ];
 
 export default function Footer() {
@@ -33,12 +36,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               {quickLinks.map((item) => (
                 <li key={item.label}>
-                  <a
-                    href={item.href}
+                  <SmartLink
+                    to={item.href}
                     className="hover:text-purple-600 dark:hover:text-cyan-300 transition-colors"
                   >
                     {item.label}
-                  </a>
+                  </SmartLink>
                 </li>
               ))}
             </ul>

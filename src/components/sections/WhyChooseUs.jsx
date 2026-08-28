@@ -11,7 +11,8 @@ import {
   FaShieldAlt,
 } from "react-icons/fa";
 import SectionHeading from "../common/SectionHeading";
-import { staggerContainer, cardPop } from "../common/motionPresets";
+import FloatingBlobs from "../common/FloatingBlobs";
+import { staggerContainer, cardPop, viewportOnce } from "../common/motionPresets";
 
 const reasons = [
   { icon: FaMedal, title: "Quality Material", desc: "We use original OEM parts to ensure long-lasting performance." },
@@ -26,7 +27,8 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="w-full py-16 md:py-20 bg-white text-black dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-800 dark:text-white transition-colors duration-300">
+    <section className="relative w-full py-16 md:py-20 bg-white text-black dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-800 dark:text-white transition-colors duration-300">
+      <FloatingBlobs variant="light" />
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           eyebrow="Why Choose Us"
@@ -40,7 +42,7 @@ export default function WhyChooseUs() {
           variants={staggerContainer(0.12)}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={viewportOnce}
         >
           {reasons.map((item) => (
             <motion.div

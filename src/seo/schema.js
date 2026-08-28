@@ -117,43 +117,39 @@ export function faqSchema(faqs) {
   };
 }
 
-/** BreadcrumbList schema for the (single-page) site. */
-export function breadcrumbSchema() {
+/** BreadcrumbList schema — defaults to the homepage's own section anchors,
+ *  but any page can pass its own `[{ name, path }]` trail (e.g. Privacy
+ *  Policy passes just Home -> Privacy Policy). */
+export function breadcrumbSchema(trail) {
+  const items = trail || [
+    { name: "Home", path: "/" },
+    { name: "AC Service Coimbatore", path: "/#ac-service" },
+    { name: "Contact", path: "/#contact" },
+  ];
+
   return {
     "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: siteConfig.url,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "AC Service Coimbatore",
-        item: `${siteConfig.url}/#ac-service`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Contact",
-        item: `${siteConfig.url}/#contact`,
-      },
-    ],
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${siteConfig.url}${item.path === "/" ? "" : item.path}`,
+    })),
   };
 }
 
-/** Combine every schema block into a single @graph for one JSON-LD script. */
-export function buildGraph(faqs) {
+/** Combine every schema block into a single @graph for one JSON-LD script.
+ *  The FAQ node is only included when the page actually has FAQs, so pages
+ *  like Privacy Policy don't emit an empty/irrelevant `FAQPage` block. */
+export function buildGraph(faqs = [], breadcrumbTrail) {
   return {
     "@context": "https://schema.org",
     "@graph": [
       localBusinessSchema(),
       organizationSchema(),
       ...serviceSchemas(),
-      faqSchema(faqs),
-      breadcrumbSchema(),
+      ...(faqs.length ? [faqSchema(faqs)] : []),
+      breadcrumbSchema(breadcrumbTrail),
     ],
   };
 }

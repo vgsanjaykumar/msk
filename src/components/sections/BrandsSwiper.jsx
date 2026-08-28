@@ -1,8 +1,10 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
+import { fadeUp, viewportOnce } from "../common/motionPresets";
 
 const brands = [
   "sony", "blue-star", "Panasonic", "xiaomi", "Samsung", "Bosch",
@@ -13,7 +15,13 @@ const brands = [
 export default function BrandsSwiper() {
   return (
     <section className="w-full py-8 md:py-10 transition-colors duration-300 bg-white dark:bg-slate-900" aria-label="Brands we service">
-      <div className="max-w-6xl mx-auto px-4">
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+        className="max-w-6xl mx-auto px-4"
+      >
         <div className="text-center mb-6">
           <h2 className="text-2xl md:text-3xl font-semibold text-purple-600 dark:text-cyan-400">
             AC & Appliance Brands We Service
@@ -55,7 +63,7 @@ export default function BrandsSwiper() {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </motion.div>
     </section>
   );
 }

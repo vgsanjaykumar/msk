@@ -1,13 +1,17 @@
 import React, { useId, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   FaWhatsapp,
   FaInstagram,
   FaMapMarkerAlt,
   FaPhoneAlt,
   FaEnvelope,
+  FaCheckCircle,
 } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import SectionHeading from "../common/SectionHeading";
+import useReducedMotion from "../common/useReducedMotion";
+import { slideLeft, slideRight, viewportOnce } from "../common/motionPresets";
 import { siteConfig, telLink, waLink } from "../../config/site";
 
 const SERVICE_OPTIONS = [
@@ -39,6 +43,7 @@ function Field({ id, label, error, children }) {
 
 export default function Contact() {
   const uid = useId();
+  const prefersReducedMotion = useReducedMotion();
   const [form, setForm] = useState({
     service: "Air Conditioner",
     name: "",
@@ -102,7 +107,13 @@ export default function Contact() {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          <aside className="rounded-2xl overflow-hidden shadow-lg bg-purple-50 dark:bg-slate-800">
+          <motion.aside
+            variants={slideLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="rounded-2xl overflow-hidden shadow-lg bg-purple-50 dark:bg-slate-800"
+          >
             <div className="w-full h-44 sm:h-56 md:h-64 lg:h-72 overflow-hidden">
               <img
                 src="/assets/msk-logo.jpeg"
@@ -189,9 +200,15 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          </aside>
+          </motion.aside>
 
-          <main className="rounded-2xl p-6 sm:p-8 shadow-lg bg-purple-50 dark:bg-slate-800">
+          <motion.main
+            variants={slideRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="rounded-2xl p-6 sm:p-8 shadow-lg bg-purple-50 dark:bg-slate-800"
+          >
             <h3 className="text-lg sm:text-xl font-semibold text-purple-700 dark:text-white">
               Book a Service
             </h3>
@@ -202,7 +219,7 @@ export default function Contact() {
                   id={`${uid}-service`}
                   value={form.service}
                   onChange={(e) => setForm({ ...form, service: e.target.value })}
-                  className="mt-1 w-full rounded-md border border-gray-300 dark:border-white/10 bg-white dark:bg-slate-900 px-3 py-2 text-black dark:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500"
+                  className="mt-1 w-full rounded-md border border-gray-300 dark:border-white/10 bg-white dark:bg-slate-900 px-3 py-2 text-black dark:text-white transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500 focus:shadow-[0_0_0_4px_rgba(147,51,234,0.15)] dark:focus:shadow-[0_0_0_4px_rgba(34,211,238,0.15)]"
                 >
                   {SERVICE_OPTIONS.map((opt) => (
                     <option key={opt}>{opt}</option>
@@ -218,7 +235,7 @@ export default function Contact() {
                     autoComplete="name"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="mt-1 w-full rounded-md border border-gray-300 dark:border-white/10 bg-white dark:bg-slate-900 px-3 py-2 text-black dark:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500"
+                    className="mt-1 w-full rounded-md border border-gray-300 dark:border-white/10 bg-white dark:bg-slate-900 px-3 py-2 text-black dark:text-white transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500 focus:shadow-[0_0_0_4px_rgba(147,51,234,0.15)] dark:focus:shadow-[0_0_0_4px_rgba(34,211,238,0.15)]"
                     aria-invalid={Boolean(errors.name)}
                   />
                 </Field>
@@ -231,7 +248,7 @@ export default function Contact() {
                     autoComplete="tel"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value.replace(/\D/g, "") })}
-                    className="mt-1 w-full rounded-md border border-gray-300 dark:border-white/10 bg-white dark:bg-slate-900 px-3 py-2 text-black dark:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500"
+                    className="mt-1 w-full rounded-md border border-gray-300 dark:border-white/10 bg-white dark:bg-slate-900 px-3 py-2 text-black dark:text-white transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500 focus:shadow-[0_0_0_4px_rgba(147,51,234,0.15)] dark:focus:shadow-[0_0_0_4px_rgba(34,211,238,0.15)]"
                     aria-invalid={Boolean(errors.phone)}
                   />
                 </Field>
@@ -245,7 +262,7 @@ export default function Contact() {
                     autoComplete="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="mt-1 w-full rounded-md border border-gray-300 dark:border-white/10 bg-white dark:bg-slate-900 px-3 py-2 text-black dark:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500"
+                    className="mt-1 w-full rounded-md border border-gray-300 dark:border-white/10 bg-white dark:bg-slate-900 px-3 py-2 text-black dark:text-white transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500 focus:shadow-[0_0_0_4px_rgba(147,51,234,0.15)] dark:focus:shadow-[0_0_0_4px_rgba(34,211,238,0.15)]"
                   />
                 </Field>
 
@@ -255,7 +272,7 @@ export default function Contact() {
                     type="datetime-local"
                     value={form.datetime}
                     onChange={(e) => setForm({ ...form, datetime: e.target.value })}
-                    className="mt-1 w-full rounded-md border border-gray-300 dark:border-white/10 bg-white dark:bg-slate-900 px-3 py-2 text-black dark:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500"
+                    className="mt-1 w-full rounded-md border border-gray-300 dark:border-white/10 bg-white dark:bg-slate-900 px-3 py-2 text-black dark:text-white transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500 focus:shadow-[0_0_0_4px_rgba(147,51,234,0.15)] dark:focus:shadow-[0_0_0_4px_rgba(34,211,238,0.15)]"
                     aria-invalid={Boolean(errors.datetime)}
                   />
                 </Field>
@@ -267,7 +284,7 @@ export default function Contact() {
                   rows="4"
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="mt-1 w-full rounded-md border border-gray-300 dark:border-white/10 bg-white dark:bg-slate-900 px-3 py-2 text-black dark:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500"
+                  className="mt-1 w-full rounded-md border border-gray-300 dark:border-white/10 bg-white dark:bg-slate-900 px-3 py-2 text-black dark:text-white transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500 focus:shadow-[0_0_0_4px_rgba(147,51,234,0.15)] dark:focus:shadow-[0_0_0_4px_rgba(34,211,238,0.15)]"
                 />
               </Field>
 
@@ -291,30 +308,51 @@ export default function Contact() {
               )}
 
               <div className="pt-3 flex flex-wrap gap-3">
-                <button
+                <motion.button
                   type="submit"
+                  whileHover={prefersReducedMotion ? undefined : { scale: 1.04 }}
+                  whileTap={prefersReducedMotion ? undefined : { scale: 0.96 }}
                   className="bg-green-500 hover:bg-green-400 text-white px-5 py-2.5 rounded-md shadow font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
                 >
                   Send via WhatsApp
-                </button>
+                </motion.button>
 
-                <a
+                <motion.a
                   href={waLink()}
                   target="_blank"
                   rel="noopener noreferrer"
+                  whileHover={prefersReducedMotion ? undefined : { scale: 1.04 }}
+                  whileTap={prefersReducedMotion ? undefined : { scale: 0.96 }}
                   className="bg-cyan-600 hover:bg-cyan-500 text-white px-4 py-2.5 rounded-md shadow transition-colors"
                 >
                   Open WhatsApp
-                </a>
+                </motion.a>
               </div>
 
-              {success && (
-                <p className="text-green-700 dark:text-green-400 text-sm mt-2" role="status" aria-live="polite">
-                  {success}
-                </p>
-              )}
+              <AnimatePresence>
+                {success && (
+                  <motion.p
+                    initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="flex items-center gap-2 text-green-700 dark:text-green-400 text-sm mt-2"
+                    role="status"
+                    aria-live="polite"
+                  >
+                    <motion.span
+                      initial={{ scale: 0, rotate: -45 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 15, delay: 0.1 }}
+                    >
+                      <FaCheckCircle aria-hidden="true" />
+                    </motion.span>
+                    {success}
+                  </motion.p>
+                )}
+              </AnimatePresence>
             </form>
-          </main>
+          </motion.main>
         </div>
       </div>
     </section>

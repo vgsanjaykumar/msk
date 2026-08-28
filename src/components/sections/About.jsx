@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
 import Button from "../common/Button";
 import SectionHeading from "../common/SectionHeading";
-import { fadeUp } from "../common/motionPresets";
+import AnimatedCounter from "../common/AnimatedCounter";
+import { fadeUp, slideLeft, slideRight, viewportOnce } from "../common/motionPresets";
 import { siteConfig, telLink } from "../../config/site";
 
 export default function About() {
@@ -15,17 +16,17 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <motion.div
-            variants={fadeUp}
+            variants={slideLeft}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={viewportOnce}
             className="flex justify-center"
           >
-            <div className="w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden shadow-xl bg-gray-200 dark:bg-white/10">
+            <div className="w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden shadow-xl bg-gray-200 dark:bg-white/10 group">
               <img
                 src="/hero-banner.png"
                 alt="MSK Solution AC service technician working in Coimbatore"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 motion-reduce:group-hover:scale-100"
                 loading="lazy"
                 width="480"
                 height="480"
@@ -33,7 +34,12 @@ export default function About() {
             </div>
           </motion.div>
 
-          <div>
+          <motion.div
+            variants={slideRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
             <SectionHeading
               eyebrow="About Us"
               title="Trusted AC Service Experts in Coimbatore"
@@ -62,20 +68,21 @@ export default function About() {
               across {siteConfig.areasServed.slice(0, 4).join(", ")} and all
               major areas of Coimbatore.
             </p>
-          </div>
+          </motion.div>
         </div>
 
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={viewportOnce}
           className="mt-16 text-center p-10 rounded-2xl shadow-lg bg-purple-50 dark:bg-white/10 border border-purple-100 dark:border-white/10"
         >
           <div className="flex items-center justify-center gap-3">
             <FaStar className="text-yellow-400 text-3xl" aria-hidden="true" />
             <h3 className="text-xl font-semibold">
-              10+ Years of Experience in AC Service
+              <AnimatedCounter value={10} suffix="+" /> Years of Experience in
+              AC Service
             </h3>
           </div>
 
@@ -91,7 +98,7 @@ export default function About() {
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={viewportOnce}
           className="text-center mt-16"
         >
           <Button href={telLink()} variant="primary">

@@ -14,11 +14,12 @@ export default function SEO({
   path = "/",
   image = "/assets/msk-logo.jpeg",
   faqs = [],
+  breadcrumbTrail,
   noindex = false,
 }) {
   const canonicalUrl = `${siteConfig.url}${path === "/" ? "" : path}`;
   const imageUrl = image.startsWith("http") ? image : `${siteConfig.url}${image}`;
-  const jsonLd = buildGraph(faqs);
+  const jsonLd = buildGraph(faqs, breadcrumbTrail);
 
   return (
     <Helmet>

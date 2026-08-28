@@ -11,6 +11,8 @@ import {
   FaCloud,
 } from "react-icons/fa";
 import SectionHeading from "../common/SectionHeading";
+import useReducedMotion from "../common/useReducedMotion";
+import { staggerContainer, fadeUp, zoomIn, viewportOnce } from "../common/motionPresets";
 
 const items = [
   { id: "ac", title: "Air Conditioner", desc: "AC repair, installation, gas filling and deep cleaning.", icon: FaFan, image: "/assets/services/ac.png" },
@@ -25,23 +27,32 @@ const items = [
 
 function FocusButton({ item, active, onSelect }) {
   const isActive = active === item.id;
+  const prefersReducedMotion = useReducedMotion();
+
   return (
-    <button
+    <motion.button
+      variants={fadeUp}
       onClick={() => onSelect(item.id)}
-      className={`w-full text-left rounded-xl p-4 flex gap-4 items-center shadow-sm transition-all duration-300 bg-white dark:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 ${
+      whileHover={prefersReducedMotion ? undefined : { x: 4 }}
+      whileTap={prefersReducedMotion ? undefined : { scale: 0.98 }}
+      className={`w-full text-left rounded-xl p-4 flex gap-4 items-center shadow-sm transition-shadow duration-300 bg-white dark:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 ${
         isActive
-          ? "ring-2 ring-purple-400 dark:ring-cyan-400 shadow-lg scale-[1.02]"
-          : "hover:-translate-y-0.5 hover:shadow-md"
+          ? "ring-2 ring-purple-400 dark:ring-cyan-400 shadow-lg"
+          : "hover:shadow-md"
       }`}
       aria-pressed={isActive}
     >
-      <div className="p-3 rounded-lg bg-gray-50 dark:bg-white/5 shrink-0 text-purple-600 dark:text-cyan-400">
+      <motion.div
+        animate={isActive && !prefersReducedMotion ? { scale: [1, 1.15, 1] } : {}}
+        transition={{ duration: 0.4 }}
+        className="p-3 rounded-lg bg-gray-50 dark:bg-white/5 shrink-0 text-purple-600 dark:text-cyan-400"
+      >
         <item.icon size={22} aria-hidden="true" />
-      </div>
+      </motion.div>
       <h3 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white">
         {item.title}
       </h3>
-    </button>
+    </motion.button>
   );
 }
 
@@ -59,13 +70,25 @@ export default function FocusGrid() {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 items-center">
-          <div className="space-y-3 md:space-y-4">
+          <motion.div
+            variants={staggerContainer(0.08)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="space-y-3 md:space-y-4"
+          >
             {items.slice(0, 4).map((item) => (
               <FocusButton key={item.id} item={item} active={active} onSelect={setActive} />
             ))}
-          </div>
+          </motion.div>
 
-          <div className="flex items-center justify-center">
+          <motion.div
+            variants={zoomIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="flex items-center justify-center"
+          >
             <div className="w-full max-w-lg rounded-2xl overflow-hidden bg-gray-50 dark:bg-slate-800 p-4 shadow-xl">
               <AnimatePresence mode="wait">
                 <motion.img
@@ -90,13 +113,19 @@ export default function FocusGrid() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="space-y-3 md:space-y-4">
+          <motion.div
+            variants={staggerContainer(0.08)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="space-y-3 md:space-y-4"
+          >
             {items.slice(4).map((item) => (
               <FocusButton key={item.id} item={item} active={active} onSelect={setActive} />
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

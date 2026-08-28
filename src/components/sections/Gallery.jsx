@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaSearchPlus } from "react-icons/fa";
 import SectionHeading from "../common/SectionHeading";
+import useReducedMotion from "../common/useReducedMotion";
 
 const images = Array.from(
   { length: 9 },
@@ -11,6 +13,7 @@ export default function Gallery() {
   const [openIndex, setOpenIndex] = useState(-1);
   const closeButtonRef = useRef(null);
   const isOpen = openIndex !== -1;
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     function onKey(e) {
@@ -50,38 +53,56 @@ export default function Gallery() {
             <motion.button
               key={src}
               onClick={() => setOpenIndex(idx)}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={prefersReducedMotion ? undefined : { scale: 1.03 }}
+              whileTap={prefersReducedMotion ? undefined : { scale: 0.97 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.03, duration: 0.36 }}
-              className="gallery-item relative overflow-hidden rounded-lg shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
+              transition={{ delay: idx * 0.04, duration: 0.4, ease: "easeOut" }}
+              className="group gallery-item relative overflow-hidden rounded-lg shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
               aria-label={`Open photo ${idx + 1} of AC and appliance service work`}
             >
               <img
                 src={src}
                 alt={`MSK Solution AC service work sample ${idx + 1} in Coimbatore`}
-                className="w-full block object-cover"
+                className="w-full block object-cover transition-transform duration-500 ease-out group-hover:scale-110 motion-reduce:group-hover:scale-100"
                 loading="lazy"
                 onError={(e) => {
                   e.currentTarget.closest("button").style.display = "none";
                 }}
               />
+              <span className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
+                <FaSearchPlus
+                  className="text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  aria-hidden="true"
+                />
+              </span>
             </motion.button>
           ))}
         </div>
       </div>
 
-      {isOpen && (
-        <div
+      <AnimatePresence>
+        {isOpen && (
+        <motion.div
           role="dialog"
           aria-modal="true"
           aria-label="Image preview"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
           onClick={() => setOpenIndex(-1)}
         >
-          <div className="relative max-w-5xl w-full mx-auto" onClick={(e) => e.stopPropagation()}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="relative max-w-5xl w-full mx-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               ref={closeButtonRef}
               onClick={() => setOpenIndex(-1)}
@@ -134,9 +155,10 @@ export default function Gallery() {
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

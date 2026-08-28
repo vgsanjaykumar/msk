@@ -1,56 +1,46 @@
 import React, { Suspense, lazy } from "react";
-import SEO from "./seo/SEO";
-import SkipLink from "./components/common/SkipLink";
-import Navbar from "./components/layout/Navbar";
-import Hero from "./components/sections/Hero";
-import Footer from "./components/layout/Footer";
-import FloatingActions from "./components/layout/FloatingActions";
-import { faqs } from "./components/sections/FAQ";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import Home from "./pages/Home";
+import SectionSkeleton from "./components/common/SectionSkeleton";
 
-// Below-the-fold sections are code-split so the initial bundle stays small
-// and the hero/nav (LCP-critical content) load first.
-const Services = lazy(() => import("./components/sections/Services"));
-const BrandsSwiper = lazy(() => import("./components/sections/BrandsSwiper"));
-const About = lazy(() => import("./components/sections/About"));
-const WhyChooseUs = lazy(() => import("./components/sections/WhyChooseUs"));
-const FocusGrid = lazy(() => import("./components/sections/FocusGrid"));
-const Gallery = lazy(() => import("./components/sections/Gallery"));
-const FAQ = lazy(() => import("./components/sections/FAQ"));
-const Contact = lazy(() => import("./components/sections/Contact"));
-
-function SectionFallback() {
-  return (
-    <div
-      className="w-full py-24 flex items-center justify-center"
-      aria-hidden="true"
-    >
-      <div className="h-8 w-8 rounded-full border-2 border-purple-300 border-t-purple-600 dark:border-cyan-800 dark:border-t-cyan-400 animate-spin" />
-    </div>
-  );
-}
+// Secondary pages are code-split too — the homepage never needs to pay
+// for their bundle weight, and vice versa.
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const Disclaimer = lazy(() => import("./pages/Disclaimer"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => {
   return (
-    <>
-      <SEO faqs={faqs} />
-      <SkipLink />
-      <Navbar />
-      <main id="main-content">
-        <Hero />
-        <Suspense fallback={<SectionFallback />}>
-          <Services />
-          <BrandsSwiper />
-          <About />
-          <WhyChooseUs />
-          <FocusGrid />
-          <Gallery />
-          <FAQ />
-          <Contact />
-        </Suspense>
-      </main>
-      <Footer />
-      <FloatingActions />
-    </>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route
+          path="privacy-policy"
+          element={
+            <Suspense fallback={<SectionSkeleton />}>
+              <PrivacyPolicy />
+            </Suspense>
+          }
+        />
+        <Route
+          path="disclaimer"
+          element={
+            <Suspense fallback={<SectionSkeleton />}>
+              <Disclaimer />
+            </Suspense>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <Suspense fallback={<SectionSkeleton />}>
+              <NotFound />
+            </Suspense>
+          }
+        />
+      </Route>
+    </Routes>
   );
 };
 
